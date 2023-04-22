@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 class AreaController extends Controller
 {
+    public function View() {
+        return view('Shape');
+    }
     public function Area(Request $request) {
         $a = $request -> a ;
         $h = $request -> h ;
@@ -13,7 +16,8 @@ class AreaController extends Controller
         $e2 = $request -> e2;
         $e3 = $request -> e3;
         $e4 = $request -> e4;
-        $sum = ($a+$h)/2;
-        return view('Shape') -> with(['areaAtriangle' => $sum] , ['areaQuadrangle' => ($e1+$e2+$e3+$e4)] );
+        $areaAtriangle = ($a+$h)/2;
+        $areaQuadrangle = $e1+$e2+$e3+$e4;
+        return view("Shape") -> with(["areaAtriangle" => $areaAtriangle] , ["areaQuadrangle" => $areaQuadrangle] );
     }
 }

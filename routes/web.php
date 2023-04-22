@@ -3,6 +3,7 @@
 // use App\Http\Controllers\helloController;
 
 use App\Http\Controllers\AreaController;
+use App\Http\Controllers\CovidController;
 use App\Http\Controllers\SumController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,7 +33,10 @@ use Illuminate\Support\Facades\Route;
 // });
 // Route::post('/',[SumController::class,'Sum']);
 
-Route::get('/', function () {
-    return view('Shape');
-});
-Route::post('/', [AreaController::class, 'Area']);
+// Route::get('/', function () {
+//     return view('Shape');
+// });
+// Route::get('/abc',[AreaController::class, 'View'] );
+// Route::post('/abc', [AreaController::class, 'Area']);
+
+Route::get('/covid',[CovidController::class, 'getData'] );

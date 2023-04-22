@@ -47,18 +47,17 @@
             @csrf
             <div class="mb-3">
                 <label class="form-label">Enter value of (A)</label>
-                <input type="number" class="form-control" name="soA" placeholder="Enter number A">
+                <input type="number" class="form-control" name="a" placeholder="Enter number A">
             </div>
             <div class="mb-3">
                 <label class="form-label">Enter value of (H) </label>
-                <input type="number" class="form-control"  name="soH" placeholder="Enter number B">
+                <input type="number" class="form-control"  name="h" placeholder="Enter number H">
             </div>
-            <button type="submit" class="btn btn-primary">Submi</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
             <div class="reuslt">
                 <h5>The rusult:  </h5>
-                <h4>{{$areaAtriangle}}</h4>
+                <h4><?php if(isset($areaAtriangle) ) {echo $areaAtriangle;}?></h4>
             </div>
-            
         </form>
     </div>
     <div class="right-form">
@@ -86,7 +85,7 @@
             <button type="submit" class="btn btn-primary">Submit</button>
             <div class="reuslt">
                 <h5>The rusult:  </h5>
-                <h4>{{$areaQuadrangle}}</h4>
+                <h4><?php if(isset($areaQuadrangle) ) {echo $areaQuadrangle;}?></h4>
             </div>          
         </form>
     </div>
