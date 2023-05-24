@@ -14,7 +14,7 @@ class CreateTableController extends Controller
                 $table ->string('name');
                 $table ->string('image');
                 $table ->string('description');
-                $table ->interger('quantity');
+                $table ->integer('quantity');
                 $table ->date('date');
                 $table ->timestamps();
             }); 
@@ -25,7 +25,7 @@ class CreateTableController extends Controller
                 $table ->string('name');
                 $table ->string('image');
                 $table ->string('description');
-                $table ->interger('quantity');
+                $table ->integer('quantity');
                 $table ->date('date');
                 $table ->timestamps();
             }); 

@@ -5,6 +5,7 @@
 use App\Http\Controllers\AddRoomController;
 use App\Http\Controllers\AreaController;
 use App\Http\Controllers\CovidController;
+use App\Http\Controllers\CreateTableController;
 use App\Http\Controllers\masterController;
 use App\Http\Controllers\SignupController;
 use App\Http\Controllers\SumController;
@@ -54,3 +55,5 @@ Route::get('database', function(){
     } );
     echo "đã thực hiện tạo bảng thành công";
 });
+
+Route::get('table',[CreateTableController::class, 'table']);
