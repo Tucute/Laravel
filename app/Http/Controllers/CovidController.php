@@ -10,6 +10,7 @@ class CovidController extends Controller
     public function getData() {
         $reponse = Http::get('https://api.covid19api.com/summary');
         $data = $reponse ->json();
-        return view('index') -> with('data', $data);
+        $sortdata = collect($data['Countries']) -> sortByDesc('TotalConfirmed');
+        return view('index') -> with('data', $sortdata);
     }
 }

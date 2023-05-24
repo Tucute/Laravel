@@ -24,7 +24,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach($data['Countries'] as $country)
+        @foreach($data as $country)
         <tr>
             <td>{{ $country['Country'] }}</td>
             <td>{{ $country['TotalConfirmed'] }}</td>
