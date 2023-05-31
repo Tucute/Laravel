@@ -7,6 +7,7 @@ use App\Http\Controllers\AreaController;
 use App\Http\Controllers\CovidController;
 use App\Http\Controllers\CreateTableController;
 use App\Http\Controllers\masterController;
+use App\Http\Controllers\pageController;
 use App\Http\Controllers\SignupController;
 use App\Http\Controllers\SumController;
 use Illuminate\Support\Facades\Route;
@@ -43,17 +44,19 @@ use Illuminate\Support\Facades\Schema;
 // Route::get('/abc',[AreaController::class, 'View'] );
 // Route::post('/abc', [AreaController::class, 'Area']);
 
-Route::get('/index',[masterController::class, 'index'] );
-Route::get('/menu',[masterController::class, 'home'] )  -> name('menu') ;
+// Route::get('/index',[masterController::class, 'index'] );
+// Route::get('/menu',[masterController::class, 'home'] )  -> name('menu') ;
 
 // Route::post('/rom',[AddRoomController::class, 'store'] );
 
-Route::get('database', function(){
-    Schema::create('loaisanpham', function($table) {
-        $table -> increments ('id');
-        $table -> string ('ten');
-    } );
-    echo "đã thực hiện tạo bảng thành công";
-});
+// Route::get('database', function(){
+//     Schema::create('loaisanpham', function($table) {
+//         $table -> increments ('id');
+//         $table -> string ('ten');
+//     } );
+//     echo "đã thực hiện tạo bảng thành công";
+// });
 
-Route::get('table',[CreateTableController::class, 'table']);
+// Route::get('table',[CreateTableController::class, 'table']);
+Route::get('/index',[pageController::class, 'getIndex'] );
+Route::get('/details/{id}',[pageController::class, 'getDetails'] );

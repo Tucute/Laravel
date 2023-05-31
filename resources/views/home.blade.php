@@ -13,6 +13,7 @@
 							</div>
 
 							<div class="row">
+								@foreach($newProduct as $np)
 								<div class="col-sm-3">
 									<div class="single-item">
 										<div class="single-item-header">
