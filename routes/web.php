@@ -60,3 +60,4 @@ use Illuminate\Support\Facades\Schema;
 // Route::get('table',[CreateTableController::class, 'table']);
 Route::get('/index',[pageController::class, 'getIndex'] );
 Route::get('/details/{id}',[pageController::class, 'getDetails'] );
+Route::get('/type/{id}',[pageController::class, 'getLoaiSp'] );
