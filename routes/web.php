@@ -61,3 +61,13 @@ use Illuminate\Support\Facades\Schema;
 Route::get('/index',[pageController::class, 'getIndex'] );
 Route::get('/details/{id}',[pageController::class, 'getDetails'] );
 Route::get('/type/{id}',[pageController::class, 'getLoaiSp'] );
+
+Route::get('/admin', [PageController::class, 'getIndexAdmin']);
+
+Route::get('/admin-add-form', [PageController::class, 'getAdminAdd'])->name('add-product');								
+Route::post('/admin-add-form', [PageController::class, 'postAdminAdd']);
+
+Route::get('/admin-edit-form/{id}', [PageController::class, 'getAdminEdit']);											
+Route::post('/admin-edit', [PageController::class, 'postAdminEdit']);											
+
+Route::post('/admin-delete/{id}', [PageController::class, 'postAdminDelete']);													
