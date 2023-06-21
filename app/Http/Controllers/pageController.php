@@ -5,9 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\comments;
 use App\Models\products;
 use App\Models\slide;
+use App\Models\Cart;
 use App\Models\type_products;
 use App\Models\bill_detail;
 use Illuminate\Http\Request;
+use App\Http\Requests\AddformRequest;
+use Illuminate\Support\Facades\Session;
 
 class pageController extends Controller
 {
@@ -39,7 +42,7 @@ class pageController extends Controller
     {				
         return view('pageadmin.formAdd');				
     }				
-    public function postAdminAdd(Request $request)							
+    public function postAdminAdd(AddformRequest $request)							
     {							
         $product = new products();							
         if ($request->hasFile('inputImage')) {							
@@ -73,7 +76,7 @@ class pageController extends Controller
     {							
         $id = $request -> editId;
 
-        $product = new products();							
+        $product = new products($id);							
         if ($request->hasFile('editImage')) {							
             $file = $request->file('editImage');							
             $fileName = $file->getClientOriginalName();							
@@ -101,7 +104,23 @@ class pageController extends Controller
         return $this->getIndexAdmin();
     }
 
-										
-
+    public function getAddToCart(Request $req, $id)
+    {
+        if (Session::has('user')) {
+            $products = products::find($id);
+            if ($products) {
+                $oldCart = session('cart') ? session('cart') : null;
+                $cart = new Cart($oldCart);
+                $cart->add($products, $id);
+                $req->session()->put('cart', $cart);
+                echo '<script>alert("Thêm vào giỏ hàng thành công.");window.location.assign("/index");</script>';
+                // return redirect()->back();
+            } else {
+                return '<script>alert("Không tìm thấy sản phẩm này.");window.location.assign("/index");</script>';  
+            }
+        } else {
+            return '<script>alert("Vui lòng đăng nhập để sử dụng chức năng này.");window.location.assign("/login");</script>';
+        }
+    }
 
 }

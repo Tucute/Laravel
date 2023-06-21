@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\APILazadaController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+// // create api						
+// Route::get('/get-product',[APIController::class,'getProducts']);
+
+Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+// create api						
+Route::get('get-lazada', [APILazadaController::class,'getLazada']);
+
+
+Route::post('add-product', [APILazadaController::class,'addProduct']);

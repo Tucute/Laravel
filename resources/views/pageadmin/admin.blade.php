@@ -31,7 +31,7 @@
                 <th scope="col">Promotion_price</th>							
                 <th scope="col">Unit</th>							
                 <th scope="col">New</th>							
-                <th scope="col"><a href="add-product" class="btn btn-primary" style="width:80px;">Add</a></th>							
+                <th scope="col"><a href="admin-add-form" class="btn btn-primary" style="width:80px;">Add</a></th>							
             </tr>							
         </thead>							
         <tbody>							

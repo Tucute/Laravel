@@ -10,6 +10,7 @@ use App\Http\Controllers\masterController;
 use App\Http\Controllers\pageController;
 use App\Http\Controllers\SignupController;
 use App\Http\Controllers\SumController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Schema;
 /*
@@ -64,10 +65,24 @@ Route::get('/type/{id}',[pageController::class, 'getLoaiSp'] );
 
 Route::get('/admin', [PageController::class, 'getIndexAdmin']);
 
-Route::get('/admin-add-form', [PageController::class, 'getAdminAdd'])->name('add-product');								
+Route::get('/admin-add-form', [PageController::class, 'getAdminAdd']);							
 Route::post('/admin-add-form', [PageController::class, 'postAdminAdd']);
 
 Route::get('/admin-edit-form/{id}', [PageController::class, 'getAdminEdit']);											
 Route::post('/admin-edit', [PageController::class, 'postAdminEdit']);											
 
 Route::post('/admin-delete/{id}', [PageController::class, 'postAdminDelete']);													
+
+// register
+Route::get('/register',[UserController::class, 'getRegister']);		
+Route::post('/register', [UserController::class, 'postRegister']);	
+Route::get('/login',[UserController::class, 'getLogin']);		
+Route::post('/login', [UserController::class, 'postLogin']);
+
+Route::post('/logout', [UserController::class, 'Logout']);
+
+Route::get('/addCart/{id}', [pageController::class, 'getAddToCart']); 
+
+	
+
+
