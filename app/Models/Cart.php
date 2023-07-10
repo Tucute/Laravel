@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class cart extends Model
 {
-   public $items = null;
-     public $totalQty = 0;
-     public $totalPrice = 0;
+    public $items = null;
+    public $totalQty = 0;
+    public $totalPrice = 0;
     public function __construct($oldCart)
     {
         if ($oldCart) {
@@ -18,7 +18,6 @@ class cart extends Model
         $this->totalPrice = $oldCart->totalPrice;
         }
     }
-     //Them phan tu vao gio hang 
      public function add($item, $id, $qty = 1)
      {
     if ($item->promotion_price == 0) {
@@ -47,7 +46,7 @@ class cart extends Model
      $this->totalPrice += $item->promotion_price * $giohang['qty'];
     }
      }
-     //xóa 1 
+
      public function reduceByOne($id)
      {
     $this->items[$id]['qty']--;
@@ -58,7 +57,7 @@ class cart extends Model
      unset($this->items[$id]);
     }
      }
-     //xóa nhiều 
+     
      public function removeItem($id)
      {
     $this->totalQty -= $this->items[$id]['qty'];

@@ -42,7 +42,6 @@
 							<div class="beta-dropdown cart-body">
 								@foreach($product_cart as $product)
 								<div class="cart-item" id="cart-item{{$product['item']['id']}}">
-
 									<a class="cart-item-delete" value="{{$product['item']['id']}}" soluong="{{$product['qty']}}"><i class="fa fa-times"></i></a>
 									<div class="media">
 										<a class="pull-left" href="#"><img src="source/assets/dest/images/products/{{$product['item']['images']}}" alt=""></a>
@@ -52,9 +51,7 @@
 										</div>
 									</div>
 								</div>
-
 								@endforeach
-
 								<div class="cart-caption">
 									<div class="cart-total text-right">Tổng tiền: <span class="cart-total-value">{{number_format(Session('cart')->totalPrice)}} đồng</span></div>
 									<div class="clearfix"></div>
